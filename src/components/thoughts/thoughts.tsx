@@ -7,7 +7,7 @@ export async function Thoughts() {
 
 	if (thoughts.length === 0) {
 		return (
-			<div className="flex items-center justify-center text-center py-16 md:py-26">
+			<div className="flex items-center justify-center text-center py-24 md:py-32 lg:py-40">
 				<p className="text-sm">no thoughts yet, be the first one to create!</p>
 			</div>
 		);
