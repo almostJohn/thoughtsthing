@@ -30,11 +30,20 @@ export function ThoughtList({ thoughts }: ThoughtListProps) {
 					className="pl-10 w-full focus-visible:border-rose-500/60 focus-visible:ring-rose-500/30"
 				/>
 			</div>
-			<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
-				{filteredThoughts.map((thought) => (
-					<ThoughtCard key={thought.id} thought={thought} />
-				))}
-			</div>
+			{filteredThoughts.length > 0 && (
+				<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+					{filteredThoughts.map((thought) => (
+						<ThoughtCard key={thought.id} thought={thought} />
+					))}
+				</div>
+			)}
+			{filteredThoughts.length === 0 && (
+				<div className="flex items-center justify-center text-center py-24 md:py-32 lg:py-40">
+					<p className="text-sm">
+						no thoughts found, try adjusting your query.
+					</p>
+				</div>
+			)}
 		</div>
 	);
 }
