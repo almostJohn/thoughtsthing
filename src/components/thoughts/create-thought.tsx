@@ -21,9 +21,15 @@ import {
 	DialogDescription,
 	DialogTitle,
 } from "../ui/dialog";
+import {
+	Tooltip,
+	TooltipProvider,
+	TooltipContent,
+	TooltipTrigger,
+} from "../ui/tooltip";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { cn } from "@/lib/utils";
-import { Loader } from "lucide-react";
+import { Loader, Plus } from "lucide-react";
 
 type CreateThoughtDialogProps = PropsWithChildren & {
 	interacted: boolean;
@@ -37,11 +43,21 @@ function CreateThoughtDialog({
 }: CreateThoughtDialogProps) {
 	return (
 		<Dialog open={interacted} onOpenChange={setInteracted}>
-			<DialogTrigger asChild>
-				<Button className="cursor-pointer bg-rose-500 text-rose-50 hover:bg-rose-600">
-					create a thought
-				</Button>
-			</DialogTrigger>
+			<Tooltip>
+				<TooltipProvider>
+					<TooltipTrigger asChild>
+						<DialogTrigger asChild>
+							<Button
+								size="icon"
+								className="size-9 px-2 cursor-pointer bg-rose-500 text-rose-50 hover:bg-rose-600"
+							>
+								<Plus className="size-5 shrink-0" />
+							</Button>
+						</DialogTrigger>
+					</TooltipTrigger>
+					<TooltipContent side="left">create a thought</TooltipContent>
+				</TooltipProvider>
+			</Tooltip>
 			<DialogContent className="w-full sm:max-w-xl">
 				<VisuallyHidden>
 					<DialogTitle>Create Thought Title</DialogTitle>
@@ -186,7 +202,7 @@ export function CreateThought() {
 						className="cursor-pointer bg-rose-500 text-rose-50 hover:bg-rose-600"
 					>
 						{isPending ? (
-							<Loader className="size-5 animate-spin shrink-0" />
+							<Loader className="size-4 animate-spin shrink-0" />
 						) : (
 							"post"
 						)}

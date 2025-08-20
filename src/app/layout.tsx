@@ -22,7 +22,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 						loveYaLikeASister.className,
 					)}
 				>
-					<main className="min-h-screen">
+					<main className="min-h-screen relative">
 						<Navbar />
 						{children}
 					</main>
