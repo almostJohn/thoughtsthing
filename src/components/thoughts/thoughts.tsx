@@ -14,9 +14,31 @@ export async function Thoughts() {
 	}
 
 	return (
-		<Suspense fallback={<ThoughtListSkeleton />}>
+		<Suspense fallback={<Skeleton />}>
 			<ThoughtList thoughts={thoughts} />
 		</Suspense>
+	);
+}
+
+function Skeleton() {
+	return (
+		<div className="flex flex-col gap-6 md:gap-8">
+			<SearchInputSkeleton />
+			<ThoughtListSkeleton />
+		</div>
+	);
+}
+
+function SearchInputSkeleton() {
+	return (
+		<div className="flex items-center gap-4">
+			<div className="h-9 relative w-full rounded-lg border border-rose-300 bg-rose-200">
+				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-[2s_linear_infinite_shimmer]" />
+			</div>
+			<div className="h-9 relative w-36 rounded-lg bg-rose-500">
+				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-[2s_linear_infinite_shimmer]" />
+			</div>
+		</div>
 	);
 }
 
@@ -26,7 +48,7 @@ function ThoughtListSkeleton() {
 			{Array.from({ length: 20 }).map((_, index) => (
 				<div
 					key={index + 1}
-					className="flex flex-col rounded-lg h-50 border p-4 border-rose-300 bg-rose-200 overflow-hidden relative"
+					className="flex flex-col rounded-lg h-50 border p-6 border-rose-300 bg-rose-200 overflow-hidden relative"
 				>
 					<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-[2s_linear_infinite_shimmer]" />
 					<div className="space-y-3">

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 					<main className="relative min-h-screen">
 						<Navbar />
 						{children}
-						<Footer />
+						{/* <Footer /> */}
 					</main>
 				</body>
 			</html>
