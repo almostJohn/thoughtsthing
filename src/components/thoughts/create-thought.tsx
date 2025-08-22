@@ -21,15 +21,9 @@ import {
 	DialogDescription,
 	DialogTitle,
 } from "../ui/dialog";
-import {
-	Tooltip,
-	TooltipProvider,
-	TooltipContent,
-	TooltipTrigger,
-} from "../ui/tooltip";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { cn } from "@/lib/utils";
-import { Loader, Plus } from "lucide-react";
+import { Loader } from "lucide-react";
 
 type CreateThoughtDialogProps = PropsWithChildren & {
 	interacted: boolean;
@@ -43,21 +37,11 @@ function CreateThoughtDialog({
 }: CreateThoughtDialogProps) {
 	return (
 		<Dialog open={interacted} onOpenChange={setInteracted}>
-			<Tooltip>
-				<TooltipProvider>
-					<TooltipTrigger asChild>
-						<DialogTrigger asChild>
-							<Button
-								size="icon"
-								className="size-9 px-2 cursor-pointer bg-rose-500 text-rose-50 hover:bg-rose-600"
-							>
-								<Plus className="size-5 shrink-0" />
-							</Button>
-						</DialogTrigger>
-					</TooltipTrigger>
-					<TooltipContent side="left">create a thought</TooltipContent>
-				</TooltipProvider>
-			</Tooltip>
+			<DialogTrigger asChild>
+				<Button className="cursor-pointer bg-rose-500 text-rose-50 hover:bg-rose-600">
+					create thought
+				</Button>
+			</DialogTrigger>
 			<DialogContent className="w-full sm:max-w-xl">
 				<VisuallyHidden>
 					<DialogTitle>Create Thought Title</DialogTitle>

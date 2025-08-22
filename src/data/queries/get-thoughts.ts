@@ -1,6 +1,6 @@
 import { db } from "../db/client";
 import { thoughts } from "../db/schema";
-import { desc, eq } from "drizzle-orm";
+import { desc } from "drizzle-orm";
 
 export async function getThoughts() {
 	return await db

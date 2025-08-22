@@ -24,7 +24,7 @@ export async function TotalThoughts() {
 
 function TotalThoughtsSkeleton() {
 	return (
-		<div className="block relative p-3 h-8 w-48 rounded-md border border-rose-300 bg-rose-200">
+		<div className="block relative p-3 h-8 w-48 rounded-lg border border-rose-300 bg-rose-200">
 			<div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-[2s_linear_infinite_shimmer]" />
 		</div>
 	);

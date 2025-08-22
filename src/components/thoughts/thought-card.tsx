@@ -1,5 +1,5 @@
 import { Tooltip } from "../tooltip";
-import { formatDate } from "@/lib/format-date";
+import { formatDate, formatDateWithRelativeTime } from "@/lib/format-date";
 
 export type Thought = {
 	id: string;
@@ -15,12 +15,12 @@ type ThoughtCardProps = {
 
 export function ThoughtCard({ thought }: ThoughtCardProps) {
 	return (
-		<Tooltip content={formatDate(thought.createdAt)}>
+		<Tooltip content={formatDateWithRelativeTime(thought.createdAt)}>
 			<div className="flex min-h-[150px] flex-col rounded-lg shadow-sm border border-rose-300 bg-rose-200 md:min-h-[200px]">
-				<div className="p-4 text-sm text-pretty text-left whitespace-pre-wrap">
+				<div className="p-6 text-sm text-pretty text-left whitespace-pre-wrap">
 					{thought.content.toLowerCase()}
 				</div>
-				<div className="mt-auto flex items-center justify-end px-4 py-2">
+				<div className="mt-auto flex items-center justify-end p-6">
 					<p className="text-sm">- {thought.author.toLowerCase()}</p>
 				</div>
 			</div>
